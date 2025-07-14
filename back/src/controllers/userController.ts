@@ -24,6 +24,8 @@ try {
     res.status(404).json({message: error.message});
 }
 };
+
+             //*CREDENTIALS/podría ir en un controller
 //*POST/users/register => Registro de un nuevo usuario.
 export const register= async (req: Request, res:Response) => {
 try{
@@ -44,7 +46,8 @@ try{
    //*BUSCAR USUARIO POR CREDENTIALID
    const user = await findUserByCredentialId (credential.id);
     res.status(200).json({login: true, user, 
-        credential}); //!quitar crredential
+        //*credential
+    }); //!quitar crredential
 } catch (error:any){
     res.status(404).json({message: error.message})
 }
