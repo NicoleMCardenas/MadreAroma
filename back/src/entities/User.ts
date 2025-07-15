@@ -14,7 +14,7 @@ export class User{
     })
     name: string
 
-    @Column()
+    @Column({ unique: true })
     email: string
 
     @Column()
@@ -23,10 +23,10 @@ export class User{
     @Column()
     nDni: number
 
-    @OneToOne(() => Credential, {cascade:true})
-    @JoinColumn({name: "credentialsId"})
+    @OneToOne(() => Credential)
+    @JoinColumn({name: "credential_id"})
     credential: Credential;
 
-    @OneToMany(() => Appointment, appointment => appointment.user)
+    @OneToMany(() => Appointment, (appointment) => appointment.user)
     appointments: Appointment[];
 }

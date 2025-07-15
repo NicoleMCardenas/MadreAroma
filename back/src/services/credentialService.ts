@@ -1,26 +1,21 @@
+import { CredentialModel } from "../config/data-source";
 import ICreateCredentialDto from "../dtos/ICreateCredentialDto";
-import ICredential from "../interfaces/ICredential";
-const credentials: ICredential[] = [];
-let credentialId: number = 10;
+import { Credential } from "../entities/Credential";
 
 //*Crear nueva credential
-export const createCredentialService= async (createCredentialDto: ICreateCredentialDto): Promise <ICredential> => {
-    const {username, password} = createCredentialDto;
-    const newCredential: ICredential = {
-        id: credentialId++,
-        username,
-        password,
+export const createCredentialService= async (createCredentialDto: ICreateCredentialDto): Promise <Credential> => {
+    const credential: Credential = CredentialModel.create(createCredentialDto);
+    await CredentialModel.save(credential);
+    return credential;
     };
-    credentials.push(newCredential);
-    return newCredential;
-};
 //*Validar credentials
-export const validateCredentialService = (validateCredentialDto: ICreateCredentialDto) => {
-    const {username, password} = validateCredentialDto;
-    const foundCredential: ICredential | undefined = credentials.find(credential => credential.username === username)
-    if (!foundCredential) throw Error("Credenciales incorrectas");
-    if (password !== foundCredential.password){
-      throw Error ("Credenciales incorrectas");
-}
-return foundCredential;
+
+export const validateCredentialService = async ( dto: ICreateCredentialDto): Promise<Credential> => {
+  const credential = await CredentialModel.findOneBy({ username: dto.username });
+
+  if (!credential || credential.password !== dto.password) {
+    throw new Error("Credenciales incorrectas");
+  }
+
+  return credential;
 };

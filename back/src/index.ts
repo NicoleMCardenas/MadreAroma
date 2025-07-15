@@ -12,5 +12,6 @@ AppDataSource.initialize()
     console.log("Conexión exitosa a la BDD");
     server.listen(PORT, () => {
     console.log(`Listening server on http://localhost:${PORT}`);
+});
 })
-})
+.catch (error => console.log(error));

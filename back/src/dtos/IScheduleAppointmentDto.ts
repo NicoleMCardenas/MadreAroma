@@ -1,7 +1,7 @@
-interface ICreateAppointmentDto {
+interface IScheduleAppointmentDto {
     date: string;
     time: string;
     description: string;
     userId: number;
 }
-export default ICreateAppointmentDto;
+export default IScheduleAppointmentDto;
