@@ -24,7 +24,7 @@ export const getAppointmentById = async (req: Request<{ id: string }>, res: Resp
 //*POST /appointments/schedule => Agendar un nuevo turno.
 export const schedule= async (req: Request, res: Response) =>{
     try {
-    const newAppointment= await scheduleAppointmentService(req.body);
+    const newAppointment: Appointment= await scheduleAppointmentService(req.body);
     res.status(201).json(newAppointment);    
     } catch (error:any) {
      res.status(400).json({message: error.message})

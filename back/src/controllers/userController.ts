@@ -18,14 +18,12 @@ try {
 export const getUserById= async (req: Request<{id: string}, {}, {}>, res:Response) => {
 const { id } = req.params;
 try {
-    const user: User = await getUserByIdService(Number(id));
+    const user: User | null  = await getUserByIdService(Number(id));
     res.status(200).json(user);
 } catch (error: any) {
     res.status(404).json({message: error.message});
 }
 };
-
-             //*CREDENTIALS/podría ir en un controller
 //*POST/users/register => Registro de un nuevo usuario.
 export const register= async (req: Request, res:Response) => {
 try{
@@ -42,11 +40,10 @@ export const login= async (req: Request, res:Response) => {
 try{
     const {username, password}= req.body;
     //*VALIDAR:
-    const credential: Credential = await validateCredentialService ({username, password})
+    const credentialId: number = await validateCredentialService ({username, password})
    //*BUSCAR USUARIO POR CREDENTIALID
-   const user = await findUserByCredentialId (credential.id);
-   if (!user) throw new Error ("Usuario no encontrado");
-    res.status(200).json({login: true, user}) 
+   const user = await findUserByCredentialId (credentialId);
+    res.status(200).json({login: true, user}) ;
 } catch (error:any){
     res.status(400).json({message: error.message});
 }

@@ -1,19 +1,19 @@
-import { AppointmentModel } from "../config/data-source";
 import ICreateAppointmentDto from "../dtos/IScheduleAppointmentDto";
 import { Appointment, AppointmentStatus } from "../entities/Appointment";
+import { appointmentRepository } from "../repositories/indexRepository";
 import { getUserByIdService } from "./userService";
 
 //*RETORNA TODAS LAS CITAS
 export const getAllAppointmentsService = async ():Promise <Appointment[]> => {
-  const allAppointments= await AppointmentModel.find();
+  const allAppointments: Appointment[] = await appointmentRepository.find();
    return allAppointments; 
 };
 
 //*OBTIENE LA CITA POR ID
 export const getAppointmentByIdService = async (id: number): Promise<Appointment> => {
-  const appointment = await AppointmentModel.findOne({ where: { id }, relations:["user"] });
+  const appointment: Appointment | null = await appointmentRepository.findOneBy({ id });
 
-  if (!appointment) throw new Error("Turno no encontrado");
+  if (!appointment) throw Error("Turno no encontrado");
   return appointment;
 };
 //*CREAR NUEVA CITA, GUARDARLA CON ID DEL USUARIO QUE LA CREÓ
@@ -26,7 +26,7 @@ export const scheduleAppointmentService = async (
   if (!user) throw new Error("Usuario no válido");
 
   //*NUEVA CITA
-  const newAppointment = AppointmentModel.create({
+  const newAppointment = appointmentRepository.create({
     date,
     time,
     description,
@@ -34,20 +34,20 @@ export const scheduleAppointmentService = async (
     user,
   });
 // //*GUARDO ID DEL USUARIO QUE CREÓ EL TURNO 
-  await AppointmentModel.save(newAppointment);
+  await appointmentRepository.save(newAppointment);
   return newAppointment;
 }; 
 
 //*CAMBIA EL ESTADO DE LA CITA A CANCELADA
-export const cancelAppointmentService = async (id: number): Promise<Appointment> => {
-  const appointment = await AppointmentModel.findOneBy({ id } );
+export const cancelAppointmentService = async (id: number): Promise<void> => {
+  const appointment: Appointment | null = await appointmentRepository.findOneBy({ id } );
 
   if (!appointment) {
-    throw new Error("Cita no encontrada");
+    throw Error(`No existe turno con id: ${id}$`);
   }
 
   appointment.status = AppointmentStatus.CANCELLED;
-  await AppointmentModel.save(appointment);
+  await appointmentRepository.save(appointment);
 
-  return appointment;
+  return;
 };
