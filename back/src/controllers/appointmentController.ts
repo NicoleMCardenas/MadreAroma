@@ -7,9 +7,13 @@ export const getAllAppointments= async (req: Request, res: Response): Promise<vo
     try {
        const allAppointments: Appointment[] = await getAllAppointmentsService(); 
        res.status(200).json(allAppointments);
-    } catch (error:any) {
+    } catch (error) {
+      if(error instanceof Error){
         res.status(404).json({ error: error.message });
-    } 
+    } else {
+        res.status(500).json({message: "Error inesperado", error});
+    }
+    }
     };
     //*VERIFICAR ES 500 O 404//*
   //*//*GET /appointments/:id
@@ -21,8 +25,12 @@ export const getAppointmentById = async (
     const appointment =
     await getAppointmentByIdService(Number(turnId));
     res.status(200).json(appointment);
-  } catch (error: any) {
+  } catch (error) {
+    if(error instanceof Error){
     res.status(404).json({ error: error.message });
+    } else { 
+      res.status(500).json({message: "Error inesperado", error});
+    }
   }
 };
 //*POST /appointments/schedule => Agendar un nuevo turno.
@@ -32,8 +40,12 @@ export const schedule= async (req: Request, res: Response): Promise<void> =>{
     const newAppointment: Appointment= 
     await scheduleAppointmentService({date, time, description, userId});
     res.status(201).json(newAppointment);    
-    } catch (error:any) {
+    } catch (error) {
+      if(error instanceof Error) {
      res.status(400).json({error: error.message});
+      } else {
+     res.status(500).json({message: "Error inesperado", error});
+      }
     }  
 };
 //*PUT /appointments/cancel/:id => Cambiar el estatus de un turno a “cancelled”.
@@ -44,7 +56,11 @@ export const cancel = async (
     try{
      await cancelAppointmentService (Number(turnId));  
     res.status(200).json({message: `Turno con id: ${turnId} cancelado`});
-    } catch (error: any){
+    } catch (error) {
+      if(error instanceof Error){
     res.status(404).json({error: error.message});    
+    } else {
+    res.status(500).json({message: "Error inesperado" ,error});
+    }
     }
 };

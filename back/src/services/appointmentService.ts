@@ -2,7 +2,6 @@ import IScheduleAppointmentDto from "../dtos/IScheduleAppointmentDto";
 import { Appointment, AppointmentStatus } from "../entities/Appointment";
 import { User } from "../entities/User";
 import { appointmentRepository, userRepository } from "../repositories/indexRepository";
-import { getUserByIdService } from "./userService";
 
 //*RETORNA TODAS LAS CITAS
 export const getAllAppointmentsService = async ():Promise <Appointment[]> => {
@@ -41,7 +40,7 @@ export const cancelAppointmentService = async (turnId: number): Promise<void> =>
   const appointment: Appointment | null = await appointmentRepository.findOneBy({ id: turnId });
 
   if (!appointment) throw Error(`No existe turno con id: ${turnId}`);
-
+    //*CANCELAR UN DÍA ANTES
           const today = new Date();
           today.setHours(0, 0, 0, 0);
 
