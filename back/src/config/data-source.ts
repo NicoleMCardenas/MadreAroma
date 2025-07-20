@@ -11,8 +11,8 @@ export const AppDataSource = new DataSource({
     username: DB_USER,
     password: DB_PASSWORD,
     database: DB_NAME,
-    synchronize: true, //*ETAPA
-    dropSchema: true, //*DESARROLLO   AL FINALIZAR CAMBIAR A FALSE
+    synchronize: false, //*ETAPA
+    dropSchema: false, //*DESARROLLO   AL FINALIZAR CAMBIAR A FALSE
     logging: false,
     entities: [User, Appointment, Credential],
     subscribers: [],

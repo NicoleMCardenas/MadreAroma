@@ -1,0 +1,29 @@
+.aboutContainer{
+display: flex;
+flex-direction: column;
+align-items: center; 
+justify-content: center;
+  padding: 20px 30px;
+  margin: 20px auto;
+
+  background-color: rgb(255, 183, 0);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  gap: 20px;
+    img{
+        height: 50px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+}
+.textSection{
+    line-height: 1.2;
+    text-align: center;
+}
+.textSection h2,
+.textSection h3,
+.textSection p{
+    margin: 4px 0;
+}

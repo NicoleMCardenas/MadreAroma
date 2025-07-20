@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    padding: 3%;
+    margin: 20px;
+    text-align: justify;
+    background-color: cadetblue;
+    border-radius: 10px;
+    img{
+        height: 250px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+}

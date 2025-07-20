@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    color: rgba(106, 64, 34, 0.485);;
+    padding: 1em;
+    align-items: center;
+}
+
+.logoSection{
+    display: flex;
+    flex-direction: row;
+    img{
+        height: 150px;
+        padding: 20 px 0 0 20 px;
+    }
+}
+
+.linksSection{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 20px 0 0 0 ;
+    gap: 2em;
+    color: rgb(8, 74, 52);
+    font-size: 1.3 em;
+    text-shadow: brown;
+    span:hover{
+        color: blueviolet;
+        cursor: pointer;
+    }
+}
+
+.avatarSection{
+display: grid;
+place-items: center;
+height: 100%;
+img{
+    width: 150px;
+    padding: 20px 40px 0 0;
+}
+}

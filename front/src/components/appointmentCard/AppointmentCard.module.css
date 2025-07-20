@@ -1,0 +1,26 @@
+.container{
+    background-color: burlywood;
+    color: blue;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    span{
+        flex:  0 0 10%;
+        text-align: center;
+    }
+}
+.active{
+    color: green;
+    &:hover{
+    background-color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+}
+.cancelled{
+    color: red
+}
