@@ -1,0 +1,125 @@
+.registerBackground {
+  min-height: 100vh;
+  height: 100vh;
+  background: url('/extraccion.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 360px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(6px);
+  font-family: 'Poiret One', cursive;
+  color: #f4e9dc;
+  border: 1px solid rgba(191, 168, 142, 0.4);
+  position: relative;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+  color: #c19476;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #d6a27a;
+  padding-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.94);
+  color: #3d2d24;
+  font-family: 'Poiret One', cursive;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #88705c;
+}
+
+.error {
+  color: #fbeaea;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.button {
+  width: 100%;
+  padding: 0.65rem;
+  background-color: #c68b65;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 5px 16px rgba(214, 162, 122, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #b47955;
+}
+
+.button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+.message {
+  text-align: center;
+  margin-top: 0.6rem;
+  color: #f4e9dc;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}

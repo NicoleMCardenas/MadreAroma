@@ -5,7 +5,7 @@ import { appointmentRepository, userRepository } from "../repositories/indexRepo
 
 //*RETORNA TODAS LAS CITAS
 export const getAllAppointmentsService = async ():Promise <Appointment[]> => {
-  const allAppointments: Appointment[] = await appointmentRepository.find();
+  const allAppointments: Appointment[] = await appointmentRepository.find()
    return allAppointments; 
 };
 

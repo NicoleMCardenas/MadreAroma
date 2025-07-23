@@ -1,0 +1,129 @@
+:global(body) {
+  margin: 0;
+  padding: 0;
+  background: url('/roastery.webp') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poiret One', cursive;
+  overflow-x: hidden;
+}
+
+/* Contenedor del formulario */
+.container {
+  max-width: 540px;
+  margin: 80px auto;
+  padding: 50px 40px;
+  border-radius: 18px;
+  background: rgba(255, 250, 240, 0.94);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  font-family: 'Poiret One', cursive;
+  color: #5a4234;
+  backdrop-filter: blur(6px);
+  background-image: url('/black.jpg'); /* textura suave */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(191, 168, 142, 0.4);
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 28px;
+  font-weight: bold;
+  border-bottom: 2px solid #d6a27a;
+  padding-bottom: 10px;
+  color:#c19476;
+}
+
+/* Formulario general */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Etiquetas */
+label {
+  font-size: 1.1rem;
+  /* color: #5a4234; */
+  color: antiquewhite;
+  font-weight: 700;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="date"],
+select {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #dbc6b1;
+  background: rgba(255, 255, 255, 0.97);
+  font-size: 1.05rem;
+  font-family: 'Poiret One', cursive;
+  color: #3d2d24;
+  /* color: antiquewhite; */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder,
+select {
+  font-family: 'Poiret One', cursive;
+  font-size: 1rem;
+  color: #88705c;
+}
+
+/* Enfocados */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #c68b65;
+  box-shadow: 0 0 0 3px rgba(214, 162, 122, 0.25);
+}
+
+/* Botón */
+button[type="submit"] {
+  background-color: #c68b65;
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poiret One', cursive;
+  box-shadow: 0 6px 20px rgba(214, 162, 122, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: #b47955;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(214, 162, 122, 0.4);
+}
+
+button[type="submit"]:disabled {
+  background-color: #e4cbb6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Error */
+.error {
+  background: #fce9e9;
+  color: #a94442;
+  padding: 10px;
+  border-left: 4px solid #d88c8c;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'Poiret One', cursive;
+}
+
+/* Info debajo de fecha */
+.info {
+  font-size: 0.85rem;
+  /* color: #6e5849; */
+  color: antiquewhite;
+  margin-top: 4px;
+  font-family: 'Poiret One', cursive;
+}

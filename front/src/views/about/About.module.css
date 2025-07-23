@@ -1,29 +1,110 @@
-.aboutContainer{
-display: flex;
-flex-direction: column;
-align-items: center; 
-justify-content: center;
-  padding: 20px 30px;
-  margin: 20px auto;
+.aboutBackground {
+  width: 100vw;
+  min-height: 100vh;
+  background: url('extraccion.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-  background-color: rgb(255, 183, 0);
-  border-radius: 20px;
-  width: 90%;
-  max-width: 900px;
+.aboutContainer {
+  width: 100%;
+  max-width: 1100px;
+  padding: 40px 32px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.textSection {
+  max-width: 800px;
   text-align: center;
-  gap: 20px;
-    img{
-        height: 50px;
-        padding-right: 10px;
-        border-radius: 10px;
-    }
+  font-family: 'Poiret One', cursive;
+  color: #f4e9dc;
 }
-.textSection{
-    line-height: 1.2;
-    text-align: center;
+
+.textSection h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #f9d5b3;
+  border-bottom: 2px solid #c68b65;
+  padding-bottom: 6px;
 }
-.textSection h2,
-.textSection h3,
-.textSection p{
-    margin: 4px 0;
+
+.textSection h3 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  font-weight: 400;
+  color: #e1c7a5;
+}
+
+.textSection p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #f8f1ea;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 900px;
+  justify-items: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.techLogo {
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 14px;
+  border-radius: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+.techLogo img {
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(0.1);
+}
+
+.techLogo:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .aboutContainer {
+    padding: 30px 20px;
+    gap: 24px;
+  }
+
+  .textSection h2 {
+    font-size: 2rem;
+  }
+
+  .textSection h3 {
+    font-size: 1.2rem;
+  }
+
+  .techLogo img {
+    height: 40px;
+  }
 }

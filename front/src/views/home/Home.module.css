@@ -1,0 +1,44 @@
+.homeContainer {
+  background-image: url('/granos.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 60px 0 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.7rem;
+  font-family: 'Poiret One', cursive;
+  color: #5a4234;
+  text-shadow: 1px 1px 2px rgba(255, 250, 245, 0.5);
+  max-width: 800px;
+  line-height: 1.3;
+  padding: 0 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #d7bba8;
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
