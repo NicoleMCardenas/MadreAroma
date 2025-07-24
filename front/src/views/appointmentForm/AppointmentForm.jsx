@@ -13,9 +13,8 @@ const AppointmentForm = () => {
     alert("Debes iniciar sesión para agendar un turno.");
     navigate("/login");
     return null;
-  }
-
- const getMinDate = () => {
+  } 
+  const getMinDate = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -29,7 +28,7 @@ const AppointmentForm = () => {
     today.setHours(0, 0, 0, 0);
 
     const maxDate = new Date(today);
-    maxDate.setDate(maxDate.getDate() + 14); // mañana + 14 días
+    maxDate.setDate(maxDate.getDate() + 14); 
     return maxDate.toISOString().split("T")[0];
   };
 
@@ -39,6 +38,8 @@ const AppointmentForm = () => {
       time: "",
       description: ""
     },
+
+
     validate: validateAppointment,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
@@ -69,7 +70,7 @@ const AppointmentForm = () => {
             name="date"
             value={formik.values.date}
             onChange={formik.handleChange}
-              min={getMinDate()}  //AGREGADAS LINEAS 72-77
+              min={getMinDate()} 
               max={getMaxDate()}
           />
           <p className={styles.info}>
@@ -118,6 +119,6 @@ const AppointmentForm = () => {
       </form>
     </div>
   );
-};
 
+};
 export default AppointmentForm;

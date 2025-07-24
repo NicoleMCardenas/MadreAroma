@@ -17,21 +17,23 @@ export const validateAppointment = (values) => {
   const in14Days = new Date(today);
   in14Days.setDate(today.getDate() + 14);
 
-  const selectedDate = new Date(values.date);
+  const [year, month, day] = values.date.split("-");
+  const selectedDate = new Date(Number(year), Number(month) - 1, Number(day));
   selectedDate.setHours(0, 0, 0, 0);
+   
 
   const dayOfWeek = selectedDate.getDay();
 
-  // Fecha
+
   if (!values.date) {
     errors.date = "La fecha es obligatoria";
   } else if (selectedDate < tomorrow || selectedDate > in14Days) {
     errors.date = "Debe ser entre mañana y los próximos 14 días";
   } else if (dayOfWeek === 0 || dayOfWeek === 6) {
-    errors.date = "No se puede agendar en fin de semana😔";
+    errors.date = "🚩No se puede agendar en fin de semana";
   }
 
-  // Hora
+
   if (!values.time) {
     errors.time = "La hora es obligatoria";
   } else if (!validTimes.includes(values.time)) {
@@ -40,7 +42,7 @@ export const validateAppointment = (values) => {
 
 
   if (!values.description) {
-    errors.description = "La descripción es obligatoria🚨";
+    errors.description = "La descripción es obligatoria";
   } else if (
     values.description.length < 4 ||
     values.description.length > 50

@@ -9,7 +9,11 @@ const { date, time, description } = req.body;
 try {
     //*Fecha
     if (!date) throw new Error ("El campo date es obligatorio");
-      const appointmentDate = new Date(date);
+
+
+const [year, month, day] = date.split("-");
+const appointmentDate = new Date(Number(year), Number(month) - 1, Number(day));
+appointmentDate.setHours(0, 0, 0, 0);
     //*Fines de semana no laborables
       const dayOfWeek = appointmentDate.getDay();
       if (dayOfWeek === 0 || dayOfWeek === 6) {

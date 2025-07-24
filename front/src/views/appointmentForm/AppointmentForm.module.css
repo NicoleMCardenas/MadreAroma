@@ -7,7 +7,6 @@
   overflow-x: hidden;
 }
 
-/* Contenedor del formulario */
 .container {
   max-width: 540px;
   margin: 80px auto;
@@ -18,14 +17,13 @@
   font-family: 'Poiret One', cursive;
   color: #5a4234;
   backdrop-filter: blur(6px);
-  background-image: url('/black.jpg'); /* textura suave */
+  background-image: url('/black.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid rgba(191, 168, 142, 0.4);
 }
 
-/* Título */
 h2 {
   text-align: center;
   font-size: 2.2rem;
@@ -36,22 +34,18 @@ h2 {
   color:#c19476;
 }
 
-/* Formulario general */
 form {
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
-/* Etiquetas */
 label {
   font-size: 1.1rem;
-  /* color: #5a4234; */
   color: antiquewhite;
   font-weight: 700;
 }
 
-/* Campos de entrada */
 input[type="text"],
 input[type="date"],
 select {
@@ -62,7 +56,6 @@ select {
   font-size: 1.05rem;
   font-family: 'Poiret One', cursive;
   color: #3d2d24;
-  /* color: antiquewhite; */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -73,7 +66,6 @@ select {
   color: #88705c;
 }
 
-/* Enfocados */
 input:focus,
 select:focus {
   outline: none;
@@ -81,7 +73,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(214, 162, 122, 0.25);
 }
 
-/* Botón */
 button[type="submit"] {
   background-color: #c68b65;
   color: #fff;
@@ -108,7 +99,6 @@ button[type="submit"]:disabled {
   box-shadow: none;
 }
 
-/* Error */
 .error {
   background: #fce9e9;
   color: #a94442;
@@ -119,10 +109,8 @@ button[type="submit"]:disabled {
   font-family: 'Poiret One', cursive;
 }
 
-/* Info debajo de fecha */
 .info {
   font-size: 0.85rem;
-  /* color: #6e5849; */
   color: antiquewhite;
   margin-top: 4px;
   font-family: 'Poiret One', cursive;

@@ -53,6 +53,7 @@ export const cancel = async (
   req: Request <{ turnId: string }, {}, {}>,
   res: Response): Promise<void> =>{
        const { turnId } = req.params;
+
     try{
      await cancelAppointmentService (Number(turnId));  
     res.status(200).json({message: `Turno con id: ${turnId} cancelado`});

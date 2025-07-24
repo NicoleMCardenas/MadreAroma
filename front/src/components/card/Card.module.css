@@ -25,10 +25,10 @@
 .overlay {
   background: linear-gradient(
     to top,
-    rgba(36, 26, 21, 0.78),   /* ⬅️ Menos opaco */
+    rgba(36, 26, 21, 0.78),   
     rgba(36, 26, 21, 0.2)
   );
-  backdrop-filter: blur(1.5px); /* ⬅️ Blur más sutil */
+  backdrop-filter: blur(1.5px);
   height: 100%;
   width: 100%;
   padding: 40px 30px;

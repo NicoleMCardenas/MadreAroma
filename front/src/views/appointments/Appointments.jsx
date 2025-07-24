@@ -37,7 +37,7 @@ setAppointments(userFromApi.appointments);
     fetchAppointments();
   }, [navigate]);
 
-  const handleCancel = async (id) => {
+  const handleCancel = async (id) => { 
     try {
       await axios.put(`${import.meta.env.VITE_API_URL}/appointments/cancel/${id}`);
       const updatedAppointments = appointments.map((appt) =>
@@ -52,8 +52,8 @@ setAppointments(userFromApi.appointments);
 
     } catch (err) {
       console.error(err);
-      const msg= err?.response?.data?.message || "Error al cancelar el turno.";
-      alert(msg);
+const msg = err?.response?.data?.error || err?.response?.data?.message || "Error al cancelar el turno.";
+    alert(msg);
     }
   };
 

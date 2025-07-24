@@ -28,7 +28,6 @@ const Register = () => {
           }
         );
 
-        console.log("Usuario registrado:", response.data);
         setStatus("Registro exitoso");
 
         alert("🎉 Tu cuenta fue creada exitosamente");
