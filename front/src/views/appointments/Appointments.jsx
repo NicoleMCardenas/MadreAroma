@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../../lib/api";
 import styles from "./Appointments.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const Appointments = () => {
 
         const user = JSON.parse(userData).user;
 
-const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${user.id}`);
+const response = await api.get(`/users/${user.id}`);
 const userFromApi= response.data;
 setAppointments(userFromApi.appointments);
         
@@ -39,7 +39,7 @@ setAppointments(userFromApi.appointments);
 
   const handleCancel = async (id) => { 
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/appointments/cancel/${id}`);
+      await api.put(`/appointments/cancel/${id}`);
       const updatedAppointments = appointments.map((appt) =>
         appt.id === id ? { ...appt, status: "cancelled" } : appt
       );
