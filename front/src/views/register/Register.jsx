@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import axios from "axios";
+import { api } from "../../lib/api";
 import { useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
 import validateUser from "../../helpers/validateUser";
@@ -20,13 +20,10 @@ const Register = () => {
     validate: validateUser,
     onSubmit: async (values, { setSubmitting, setStatus, resetForm }) => {
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/users/register`,
-          {
+        const response = await api.post("/users/register", {
             ...values,
             nDni: Number(values.nDni),
-          }
-        );
+          });
 
         setStatus("Registro exitoso");
 
