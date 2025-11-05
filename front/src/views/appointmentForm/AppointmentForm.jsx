@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { api } from "../../lib/api";
 import styles from "./AppointmentForm.module.css";
 import { validateAppointment, validTimes } from "../../helpers/validateAppointment";
 
@@ -43,9 +43,9 @@ const AppointmentForm = () => {
     validate: validateAppointment,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        await axios.post(
-          `${import.meta.env.VITE_API_URL}/appointments/schedule`,{
-            ...values, userId: user.id
+        await api.post("/appointments/schedule", {
+            ...values,
+          userId: user.id,
           });
 
         alert("Turno agendado con éxito");
