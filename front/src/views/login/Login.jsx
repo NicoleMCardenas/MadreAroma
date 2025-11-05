@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import axios from "axios";
+import { api } from "../../lib/api";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import { validateLogin } from "../../helpers/validateUser";
@@ -15,10 +15,7 @@ const Login = () => {
     validate: validateLogin,
     onSubmit: async (values, { setSubmitting, setStatus, resetForm }) => {
       try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/users/login`,
-          values
-        );
+        const { data } = await api.post("/users/login", values);
 
         localStorage.setItem("user", JSON.stringify(data));
 
